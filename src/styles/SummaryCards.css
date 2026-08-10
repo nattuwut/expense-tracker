@@ -1,0 +1,21 @@
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.summary-card h3 {
+  margin-top: 0;
+}
+
+.summary-card p {
+  font-size: 24px;
+  font-weight: bold;
+}

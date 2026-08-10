@@ -1,0 +1,18 @@
+.transaction-form {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.transaction-form input,
+.transaction-form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.transaction-form button {
+  padding: 12px 20px;
+  cursor: pointer;
+}

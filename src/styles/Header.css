@@ -1,0 +1,11 @@
+.header {
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header p {
+  color: #666;
+}

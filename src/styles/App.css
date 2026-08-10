@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+}
+
+.app {
+  width: min(100% - 32px, 1000px);
+  margin: 0 auto;
+  padding: 40px 0;
+}
