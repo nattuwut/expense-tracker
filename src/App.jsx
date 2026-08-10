@@ -9,6 +9,25 @@ import TransactionList from "./components/TransactionList";
 function App() {
   const [transactions, setTransactions] = useState([]);
 
+  function handleDeleteTransaction(id) {
+    setTransactions((prev) =>
+      prev.filter((transaction) => transaction.id !== id)
+    );
+  }
+
+  function handleEditTransaction(id, updatedTransaction) {
+    setTransactions((prev) =>
+      prev.map((transaction) =>
+        transaction.id === id
+          ? {
+            ...transaction,
+            ...updatedTransaction,
+          }
+          : transaction
+      )
+    );
+  }
+
   return (
     <div className="app">
       <Header />
@@ -21,6 +40,8 @@ function App() {
 
       <TransactionList
         transactions={transactions}
+        onDelete={handleDeleteTransaction}
+        onEdit={handleEditTransaction}
       />
     </div>
   );

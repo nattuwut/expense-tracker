@@ -1,6 +1,11 @@
 import "./../styles/TransactionList.css";
+import TransactionItem from "./TransactionItem";
 
-function TransactionList({ transactions }) {
+function TransactionList({
+  transactions,
+  onDelete,
+  onEdit,
+}) {
   return (
     <div className="transaction-list">
       <h2>Transactions</h2>
@@ -9,16 +14,12 @@ function TransactionList({ transactions }) {
         <p>No transactions yet.</p>
       ) : (
         transactions.map((transaction) => (
-          <div key={transaction.id}>
-            <span>
-              {transaction.description}
-            </span>
-
-            <span>
-              {transaction.type === "income" ? "+" : "-"}
-              ฿{transaction.amount}
-            </span>
-          </div>
+          <TransactionItem
+            key={transaction.id}
+            transaction={transaction}
+            onDelete={onDelete}
+            onEdit={onEdit}
+          />
         ))
       )}
     </div>

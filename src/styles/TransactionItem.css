@@ -1,0 +1,70 @@
+.transaction-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    padding: 16px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.transaction-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.transaction-description {
+    font-weight: 600;
+}
+
+.transaction-type {
+    font-size: 13px;
+    color: #777;
+}
+
+.transaction-amount {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.transaction-amount.income {
+    color: #16a34a;
+}
+
+.transaction-amount.expense {
+    color: #dc2626;
+}
+
+.transaction-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.delete-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.transaction-edit-form {
+    display: flex;
+    flex: 1;
+    gap: 8px;
+}
+
+.transaction-edit-form input,
+.transaction-edit-form select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.transaction-actions button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+}
