@@ -32,7 +32,9 @@ function App() {
     <div className="app">
       <Header />
 
-      <SummaryCards />
+      <SummaryCards
+        transactions={transactions}
+      />
 
       <TransactionForm
         setTransactions={setTransactions}
