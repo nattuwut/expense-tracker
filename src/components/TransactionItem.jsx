@@ -102,6 +102,10 @@ function TransactionItem({
               {transaction.description}
             </span>
 
+            <span className="transaction-date">
+              {transaction.date}
+            </span>
+
             <span className="transaction-type">
               {transaction.type === "income"
                 ? "Income"
@@ -113,11 +117,10 @@ function TransactionItem({
           <div className="transaction-actions">
 
             <span
-              className={`transaction-amount ${
-                transaction.type === "income"
+              className={`transaction-amount ${transaction.type === "income"
                   ? "income"
                   : "expense"
-              }`}
+                }`}
             >
               {transaction.type === "income"
                 ? "+"

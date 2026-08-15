@@ -14,6 +14,7 @@ function TransactionForm({ setTransactions }) {
       description: description.trim(),
       amount: Number(amount),
       type: type,
+      date: new Date().toISOString().split("T")[0],
     };
 
     setTransactions((prev) => [

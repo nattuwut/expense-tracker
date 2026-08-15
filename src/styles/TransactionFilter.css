@@ -1,0 +1,35 @@
+.transaction-filter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.transaction-filter button {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  color: #374151;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.transaction-filter button:hover {
+  background: #f3f4f6;
+}
+
+.transaction-filter button.active {
+  background: #111827;
+  color: white;
+  border-color: #111827;
+}
+
+@media (max-width: 600px) {
+  .transaction-filter {
+    width: 100%;
+  }
+
+  .transaction-filter button {
+    flex: 1;
+  }
+}

@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import SummaryCards from "./components/SummaryCards";
 import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
+import TransactionFilter from "./components/TransactionFilter";
+import TransactionSearch from "./components/TransactionSearch";
 
 function App() {
   const [transactions, setTransactions] = useState(() => {
@@ -15,12 +17,33 @@ function App() {
       : [];
   });
 
+  const [filter, setFilter] = useState("all");
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     localStorage.setItem(
       "transactions",
       JSON.stringify(transactions)
     );
   }, [transactions]);
+
+  const filteredTransactions = transactions
+    .filter((transaction) => {
+      const matchesFilter =
+        filter === "all" ||
+        transaction.type === filter;
+
+      const matchesSearch =
+        transaction.description
+          .toLowerCase()
+          .includes(search.toLowerCase());
+
+      return matchesFilter && matchesSearch;
+    })
+    .sort(
+      (a, b) =>
+        new Date(b.date) - new Date(a.date)
+    );
 
   function handleDeleteTransaction(id) {
     setTransactions((prev) =>
@@ -53,8 +76,18 @@ function App() {
         setTransactions={setTransactions}
       />
 
+      <TransactionSearch
+        search={search}
+        onSearch={setSearch}
+      />
+
+      <TransactionFilter
+        filter={filter}
+        onFilterChange={setFilter}
+      />
+
       <TransactionList
-        transactions={transactions}
+        transactions={filteredTransactions}
         onDelete={handleDeleteTransaction}
         onEdit={handleEditTransaction}
       />
