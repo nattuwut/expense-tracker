@@ -1,0 +1,52 @@
+.monthly-summary {
+  margin-bottom: 30px;
+}
+
+.monthly-summary h2 {
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.monthly-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.monthly-card {
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid #e5e7eb;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.monthly-card span {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.monthly-card strong {
+  font-size: 22px;
+}
+
+.monthly-card.income strong {
+  color: #16a34a;
+}
+
+.monthly-card.expense strong {
+  color: #dc2626;
+}
+
+.monthly-card.balance strong {
+  color: #2563eb;
+}
+
+@media (max-width: 768px) {
+  .monthly-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}

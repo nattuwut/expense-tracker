@@ -7,6 +7,8 @@ import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
 import TransactionFilter from "./components/TransactionFilter";
 import TransactionSearch from "./components/TransactionSearch";
+import MonthlySummary from "./components/MonthlySummary";
+import ExpenseChart from "./components/ExpenseChart";
 
 function App() {
   const [transactions, setTransactions] = useState(() => {
@@ -66,31 +68,53 @@ function App() {
 
   return (
     <div className="app">
+
       <Header />
 
-      <SummaryCards
-        transactions={transactions}
-      />
+      <main>
 
-      <TransactionForm
-        setTransactions={setTransactions}
-      />
+        <section className="dashboard-section">
 
-      <TransactionSearch
-        search={search}
-        onSearch={setSearch}
-      />
+          <SummaryCards
+            transactions={transactions}
+          />
 
-      <TransactionFilter
-        filter={filter}
-        onFilterChange={setFilter}
-      />
+          <MonthlySummary
+            transactions={transactions}
+          />
 
-      <TransactionList
-        transactions={filteredTransactions}
-        onDelete={handleDeleteTransaction}
-        onEdit={handleEditTransaction}
-      />
+          <ExpenseChart
+            transactions={transactions}
+          />
+
+        </section>
+
+        <section className="transaction-section">
+
+          <TransactionForm
+            setTransactions={setTransactions}
+          />
+
+          <TransactionSearch
+            search={search}
+            onSearch={setSearch}
+          />
+
+          <TransactionFilter
+            filter={filter}
+            onFilterChange={setFilter}
+          />
+
+          <TransactionList
+            transactions={filteredTransactions}
+            onDelete={handleDeleteTransaction}
+            onEdit={handleEditTransaction}
+          />
+
+        </section>
+
+      </main>
+
     </div>
   );
 }
