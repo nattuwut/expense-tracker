@@ -7,7 +7,9 @@ function TransactionForm({ setTransactions }) {
   const [type, setType] = useState("expense");
 
   function handleAddTransaction() {
-    if (!description.trim() || !amount) return;
+    if (!description.trim()) return;
+
+    if (!amount || Number(amount) <= 0) return;
 
     const newTransaction = {
       id: Date.now(),
@@ -40,6 +42,8 @@ function TransactionForm({ setTransactions }) {
 
       <input
         type="number"
+        min="0"
+        step="0.01"
         placeholder="Amount"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}

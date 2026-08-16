@@ -118,8 +118,8 @@ function TransactionItem({
 
             <span
               className={`transaction-amount ${transaction.type === "income"
-                  ? "income"
-                  : "expense"
+                ? "income"
+                : "expense"
                 }`}
             >
               {transaction.type === "income"
@@ -136,9 +136,15 @@ function TransactionItem({
 
             <button
               className="delete-button"
-              onClick={() =>
-                onDelete(transaction.id)
-              }
+              onClick={() => {
+                const confirmed = window.confirm(
+                  "Are you sure you want to delete this transaction?"
+                );
+
+                if (confirmed) {
+                  onDelete(transaction.id);
+                }
+              }}
             >
               🗑️
             </button>

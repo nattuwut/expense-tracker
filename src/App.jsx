@@ -107,6 +107,7 @@ function App() {
 
           <TransactionList
             transactions={filteredTransactions}
+            hasTransactions={transactions.length > 0}
             onDelete={handleDeleteTransaction}
             onEdit={handleEditTransaction}
           />
