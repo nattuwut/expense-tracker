@@ -8,6 +8,10 @@
     border-bottom: 1px solid #eee;
 }
 
+.transaction-item>* {
+    min-width: 0;
+}
+
 .transaction-info {
     display: flex;
     flex-direction: column;
@@ -16,6 +20,8 @@
 
 .transaction-description {
     font-weight: 600;
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .transaction-date {
